@@ -23,26 +23,23 @@ const Education = () => {
   return (
     <section id="education" className="py-20 md:py-28 bg-card">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="section-title animate-fade-up">Education</h2>
           </div>
 
-          {/* Timeline */}
-          <div className="relative">
+          {/* Education Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {educationData.map((item, index) => (
               <div
                 key={item.degree}
-                className="timeline-item animate-fade-up"
+                className="bg-secondary/30 border border-border rounded-lg p-6 hover:border-primary transition-all duration-300 animate-fade-up"
                 style={{ animationDelay: `${0.2 + index * 0.15}s` }}
               >
-                <div className="timeline-dot" />
-                <div className="mb-2">
-                  <h3 className="text-xl font-semibold text-foreground">{item.degree}</h3>
-                  <span className="text-primary font-medium text-sm">{item.period}</span>
-                </div>
-                <p className="text-muted-foreground leading-relaxed">
+                <span className="text-primary font-medium text-sm">{item.period}</span>
+                <h3 className="text-xl font-semibold text-foreground mt-2 mb-4">{item.degree}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {item.description}
                 </p>
               </div>

@@ -1,9 +1,15 @@
-import { Monitor, ArrowUp } from 'lucide-react';
+import { Monitor, ArrowUp, Github, Linkedin, Facebook } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const socialLinks = [
+    { icon: Github, href: 'https://github.com/', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://linkedin.com/', label: 'LinkedIn' },
+    { icon: Facebook, href: 'https://facebook.com/', label: 'Facebook' },
+  ];
 
   return (
     <>
@@ -13,6 +19,22 @@ const Footer = () => {
             {/* Logo */}
             <div className="w-12 h-12 border-2 border-primary rounded-lg flex items-center justify-center mb-4">
               <Monitor className="w-6 h-6 text-primary" />
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-4 mb-6">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-5 h-5" />
+                </a>
+              ))}
             </div>
 
             {/* Email */}

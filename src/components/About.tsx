@@ -1,11 +1,9 @@
-import { User, MapPin, Mail, Languages } from 'lucide-react';
-
 const About = () => {
   const personalInfo = [
-    { icon: User, label: 'Name', value: 'Iqra Irfan' },
-    { icon: MapPin, label: 'Location', value: 'Khanewal, Pakistan' },
-    { icon: Mail, label: 'Email', value: 'khanzadi8566@gmail.com' },
-    { icon: Languages, label: 'Languages', value: 'English, Urdu, Saraiki' },
+    { label: 'Name', value: 'Iqra Irfan' },
+    { label: 'Location', value: 'Khanewal, Pakistan' },
+    { label: 'Email', value: 'khanzadi8566@gmail.com' },
+    { label: 'Languages', value: 'English, Urdu, Saraiki' },
   ];
 
   return (
@@ -21,19 +19,16 @@ const About = () => {
             skills and continuously enhance my expertise with modern analytical tools to solve real-world business challenges.
           </p>
 
-          {/* Personal Info Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 max-w-2xl mx-auto">
+          {/* Personal Info - Simple Lines */}
+          <div className="flex flex-col items-center gap-3 mb-10">
             {personalInfo.map((item, index) => (
               <div
                 key={item.label}
-                className="flex items-center gap-4 p-4 bg-secondary/50 rounded-lg animate-fade-up"
+                className="animate-fade-up"
                 style={{ animationDelay: `${0.2 + index * 0.1}s` }}
               >
-                <item.icon className="w-5 h-5 text-primary flex-shrink-0" />
-                <div className="text-left">
-                  <span className="text-primary font-medium text-sm">{item.label}</span>
-                  <p className="text-foreground">{item.value}</p>
-                </div>
+                <span className="text-primary font-medium">{item.label}: </span>
+                <span className="text-muted-foreground">{item.value}</span>
               </div>
             ))}
           </div>

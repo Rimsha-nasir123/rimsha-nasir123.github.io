@@ -28,15 +28,15 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-2 text-primary">
+        <div className="flex items-center justify-center h-16 md:h-20 relative">
+          {/* Logo - positioned left */}
+          <a href="#home" className="absolute left-4 flex items-center gap-2 text-primary">
             <div className="w-10 h-10 border-2 border-primary rounded-lg flex items-center justify-center">
               <Monitor className="w-5 h-5" />
             </div>
           </a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - centered */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -51,7 +51,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground p-2"
+            className="absolute right-4 md:hidden text-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
