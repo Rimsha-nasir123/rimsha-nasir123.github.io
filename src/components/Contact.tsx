@@ -1,34 +1,38 @@
-import { useState } from 'react';
-import { MapPin, Mail, Send } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { useState } from "react";
+import { MapPin, Mail, Send } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Create mailto link for form submission
-    const mailtoLink = `mailto:khanzadi8566@gmail.com?subject=Message from ${formData.name}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:khanzadi8566@gmail.com?subject=Message from ${
+      formData.name
+    }&body=${encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     )}`;
-    
-    window.open(mailtoLink, '_blank');
-    
+
+    window.open(mailtoLink, "_blank");
+
     toast({
       title: "Opening email client...",
       description: "Your message is ready to send!",
     });
 
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: "", email: "", message: "" });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -41,29 +45,45 @@ const Contact = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="section-title animate-fade-up">Contact Me</h2>
-          <p className="section-subtitle animate-fade-up" style={{ animationDelay: '0.1s' }}>
+          <p
+            className="section-subtitle animate-fade-up"
+            style={{ animationDelay: "0.1s" }}
+          >
             Feel free to reach out for collaboration, queries, or opportunities.
           </p>
         </div>
 
         {/* Contact Info */}
-        <div className="flex flex-wrap justify-center gap-8 mb-12">
-          <div className="contact-info-item animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            <MapPin className="w-5 h-5 text-primary" />
-            <span>Khanewal, Pakistan</span>
-          </div>
-          <div className="contact-info-item animate-fade-up" style={{ animationDelay: '0.3s' }}>
-            <Mail className="w-5 h-5 text-primary" />
-            <span>khanzadi8566@gmail.com</span>
+        <div className="flex items-center justify-center">
+          <div className="flex justify-between items-center gap-8 mb-12 w-7/12">
+            <div
+              className="contact-info-item animate-fade-up hover:bg-gray-50 hover:shadow-lg flex flex-col items-center justify-center bg-[#F4F6F7] w-full h-32 rounded-md"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <MapPin className="w-7 h-7 text-[#0066FF]" />
+              <span>Khanewal, Pakistan</span>
+            </div>
+            <div
+              className="contact-info-item animate-fade-up hover:bg-gray-50 hover:shadow-lg flex flex-col items-center justify-center bg-[#F4F6F7] w-full h-32 rounded-md"
+              style={{ animationDelay: "0.3s" }}
+            >
+              <Mail className="w-7 h-7 text-primary" />
+              <span>khanzadi8566@gmail.com</span>
+            </div>
           </div>
         </div>
-
         {/* Contact Form */}
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-card p-8 rounded-lg border border-border animate-fade-up" style={{ animationDelay: '0.4s' }}>
+        <div className="flex items-center justify-center mx-auto">
+          <div
+            className="bg-card p-8 rounded-lg border border-border animate-fade-up w-7/12"
+            style={{ animationDelay: "0.4s" }}
+          >
             <div className="flex items-center gap-3 mb-6">
-              <Send className="w-5 h-5 text-primary" />
-              <h4 className="text-lg font-semibold text-foreground">Send a Message</h4>
+              <Mail className="w-5 h-5 text-primary" />
+
+              <h4 className="text-lg font-semibold text-foreground">
+                Send a Message
+              </h4>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -114,7 +134,10 @@ const Contact = () => {
               </div>
 
               <div className="text-center">
-                <button type="submit" className="btn-primary">
+                <button
+                  type="submit"
+                  className="bg-[#0066FF] animate-fade-up text-white rounded-full font-semibold py-3 px-8"
+                >
                   Send Message
                 </button>
               </div>
